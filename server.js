@@ -7,6 +7,10 @@ const path = require("path")
  * or streams json from a file to the client.
  */
 const server = http.createServer((req, res) => {
+    // Set CORS headers
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET");
+
     // serve HTML
     if (req.method === "GET" && req.url === "/") {
         const filePath = path.join(__dirname, "index.html")
